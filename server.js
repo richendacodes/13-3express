@@ -4,6 +4,8 @@ var PORT = 8090;
 
 app.use('/static', express.static('public'));
 
+app.use('/js', express.static('public/js'));
+
 app.get("/", function(req, res) {
   res.sendFile(process.cwd() + "/index.html");
 });
