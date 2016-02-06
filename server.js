@@ -1,6 +1,19 @@
 var express = require('express');
 var app = express();
 var PORT = process.env.PORT || 8090;
+var GitHubApi = require("node-github");
+var github = new GitHubApi({
+    version: "3.0.0"
+});
+
+github.user.getFollowingFromUser({
+    user: "mikedeboer"
+}, function(err, res) {
+    console.log(JSON.stringify(res));
+});
+
+
+
 
 app.use('/static', express.static('public'));
 
